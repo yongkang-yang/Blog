@@ -108,20 +108,6 @@
   </url>
   
   <url>
-    <loc>https://yongkang-yang.github.io/tags/scales/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yongkang-yang.github.io/tags/measures/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yongkang-yang.github.io/tags/zotero/</loc>
     <lastmod>2024-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -143,6 +129,20 @@
   </url>
   
   <url>
+    <loc>https://yongkang-yang.github.io/tags/scales/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yongkang-yang.github.io/tags/measures/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://yongkang-yang.github.io/tags/growth-modeling/</loc>
     <lastmod>2024-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -151,6 +151,27 @@
   
   <url>
     <loc>https://yongkang-yang.github.io/tags/moderation/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yongkang-yang.github.io/tags/RSS/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yongkang-yang.github.io/tags/ChatGPT/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yongkang-yang.github.io/tags/Academic-writing/</loc>
     <lastmod>2024-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -186,27 +207,6 @@
   
   <url>
     <loc>https://yongkang-yang.github.io/tags/browzine/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yongkang-yang.github.io/tags/RSS/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yongkang-yang.github.io/tags/ChatGPT/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yongkang-yang.github.io/tags/Academic-writing/</loc>
     <lastmod>2024-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
