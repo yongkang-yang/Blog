@@ -17,39 +17,32 @@
       </tags>
   </entry>
   <entry>
-    <title>How to test moderation in growth modeling</title>
-    <url>/posts/c622061/</url>
-    <content><![CDATA[<p>The outcome is repeatedly measured in the moderation. </p>
-<p>There are two papers explaining the methods behind:</p>
+    <title>How to batch edit title case into sentence case for multiple items in Zotero</title>
+    <url>/posts/4e75520/</url>
+    <content><![CDATA[<p>Zotero users might use APA 7<sup>th</sup> for their reference. There is a problem when the metadata in Zotero is title case, it is laborious to change it every time to sentence case. I found a java script that can take care of all items at once.</p>
+<p><strong>Usage:</strong> </p>
 <ol>
-<li><p>Curran, P. J., Bauer, D. J., &amp; Willoughby, M. T. (2004). Testing main effects and interactions in latent curve analysis. Psychological Methods, 9(2), 220-237.</p>
-</li>
-<li><p>Preacher, K. J., Curran, P. J., &amp; Bauer, D. J. (2006). Computational tools for probing interactions in multiple linear regression, multilevel modeling, and latent curve analysis. Journal of Educational and Behavioral Statistics, 31(4), 437-448.</p>
-<blockquote>
-<p>Note: online tools mentioned in this paper could be found at: <span class="exturl" data-url="aHR0cHM6Ly9ldXIwMy5zYWZlbGlua3MucHJvdGVjdGlvbi5vdXRsb29rLmNvbS8/dXJsPWh0dHA6Ly93d3cucXVhbnRwc3kub3JnL2ludGVyYWN0L2luZGV4Lmh0bSZkYXRhPTA1JTdDMDIlN0N5LnlhbmdAcnNtLm5sJTdDNmE3NGIyMTkxY2VjNGRiNjg0MGYwOGRjYmZjYjgzOWMlN0M3MTU5MDJkNmY2M2U0YjhkOTI5YjRiYjE3MGJhZDQ5MiU3QzAlN0MwJTdDNjM4NTk2MTI4MDM2NjgwOTA2JTdDVW5rbm93biU3Q1RXRnBiR1pzYjNkOGV5SldJam9pTUM0d0xqQXdNREFpTENKUUlqb2lWMmx1TXpJaUxDSkJUaUk2SWsxaGFXd2lMQ0pYVkNJNk1uMD0lN0MwJTdDJTdDJTdDJnNkYXRhPTVtM2RIRVJuSkEzMlh1K0p0RGg3K3JHbzAwT0ZLSWgwSkFHekQ0c3F2aEk9JnJlc2VydmVkPTA=">http://www.quantpsy.org/interact/index.htm<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-</li>
+<li>copy the code below</li>
+<li>Zotero-Tools-Developer-Run JavaScript</li>
 </ol>
-<p>Though moderation was not a main focus in this classic paper, gender as a moderator appeared in the growth modeling. </p>
-<ol>
-<li>Ployhart, R. E., &amp; Vandenberg, R. J. (2010). Longitudinal research: The theory, design, and analysis of change. <em>Journal of management</em>, <em>36</em>(1), 94-120.</li>
-</ol>
-<p><strong>Two example articles deployed moderation in latent growth modeling:</strong></p>
-<p><strong>AMJ:</strong> more details in Online Supplemental Materials:</p>
-<ul>
-<li>Deng, Y., Lin, W., Song, Y., Wang, M., Cai, D., &amp; Liu, J. (In press). Socialization as a political arena: A multi-agent interactionist perspective to understand political skill and newcomer socialization rates. <em>Academy of Management Journal</em>.</li>
-</ul>
-<p><strong>JAP</strong>: Multilevel moderation</p>
-<ul>
-<li>Miron-Spektor, E., Vashdi, D. R., &amp; Gopher, H. (2022). Bright sparks and enquiring minds: Differential effects of goal orientation on the creativity trajectory. <em>Journal of Applied Psychology</em>, <em>107</em>(2), 310-218.</li>
-</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">zoteroPane = <span class="title class_">Zotero</span>.<span class="title function_">getActiveZoteroPane</span>();</span><br><span class="line">items = zoteroPane.<span class="title function_">getSelectedItems</span>();</span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (item <span class="keyword">of</span> items) &#123;</span><br><span class="line"><span class="keyword">var</span> title = item.<span class="title function_">getField</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">result += <span class="string">&quot; &quot;</span> + title + <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> new_title = title.<span class="title function_">replace</span>(<span class="regexp">/\b([A-Z][a-z0-9]+|A)\b/g</span>, <span class="keyword">function</span> (<span class="params">x</span>) &#123; <span class="keyword">return</span> x.<span class="title function_">toLowerCase</span>(); &#125;);</span><br><span class="line">new_title = new_title.<span class="title function_">replace</span>(<span class="regexp">/(^|\?\s*)[a-z]/</span>, <span class="keyword">function</span> (<span class="params">x</span>) &#123; <span class="keyword">return</span> x.<span class="title function_">toUpperCase</span>(); &#125;);</span><br><span class="line">result += <span class="string">&quot;-&gt; &quot;</span> + new_title + <span class="string">&quot;\n\n&quot;</span>;</span><br><span class="line"><span class="comment">// // Do it at your own risk</span></span><br><span class="line"> item.<span class="title function_">setField</span>(<span class="string">&#x27;title&#x27;</span>, new_title);</span><br><span class="line"> <span class="keyword">await</span> item.<span class="title function_">saveTx</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+
+<p><span style="color:#FF0000;">The only issue is that it can’t uppercase the first letter after the “:”</span> there is still minimum work to be done, but I am not an expert in Java so if you find a better way, just let me know. </p>
+<p><strong>If you want all title case, you can try another script below:</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> items = <span class="title class_">ZoteroPane</span>.<span class="title function_">getSelectedItems</span>();</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (item <span class="keyword">of</span> items) &#123;</span><br><span class="line">            <span class="keyword">var</span> title = item.<span class="title function_">getField</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">            new_title = <span class="title function_">titleCase</span>(title). <span class="comment">// convert to title case</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;And&#x27;</span>, <span class="string">&#x27;and&#x27;</span>). <span class="comment">// replace &#x27;And&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;For&#x27;</span>, <span class="string">&#x27;for&#x27;</span>). <span class="comment">// replace &#x27;For&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;In&#x27;</span>, <span class="string">&#x27;in&#x27;</span>). <span class="comment">// replace &#x27;In&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Of&#x27;</span>, <span class="string">&#x27;of&#x27;</span>). <span class="comment">// replace &#x27;Of&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;With&#x27;</span>, <span class="string">&#x27;with&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Usa&#x27;</span>, <span class="string">&#x27;USA&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Dna&#x27;</span>, <span class="string">&#x27;DNA&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Pcr&#x27;</span>, <span class="string">&#x27;PCR&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Ros&#x27;</span>, <span class="string">&#x27;ROS&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;To&#x27;</span>, <span class="string">&#x27;to&#x27;</span>)</span><br><span class="line">                            </span><br><span class="line">                            </span><br><span class="line">                            </span><br><span class="line">            item.<span class="title function_">setField</span>(<span class="string">&#x27;title&#x27;</span>, new_title);</span><br><span class="line">            <span class="keyword">await</span> item.<span class="title function_">saveTx</span>();</span><br><span class="line">            n ++</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> n + <span class="string">&#x27;个条目的题目大小写转为词首字母大写，有些特殊缩写单词可能转换错误，请查实。&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将单词转为首字母大写</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">titleCase</span>(<span class="params">str</span>) &#123;   </span><br><span class="line">     <span class="keyword">var</span> newStr = str.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>);    </span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; newStr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        newStr[i] = newStr[i].<span class="title function_">slice</span>(<span class="number">0</span>,<span class="number">1</span>).<span class="title function_">toUpperCase</span>() + newStr[i].<span class="title function_">slice</span>(<span class="number">1</span>).<span class="title function_">toLowerCase</span>();</span><br><span class="line">        &#125;      </span><br><span class="line">     <span class="keyword">return</span> newStr.<span class="title function_">join</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Note: </p>
+<p>Before run the script, make sure the metadata (year, author name, doi, etc.) are right. </p>
+<p><strong>Reference:</strong></p>
+<p>Find other useful scripts in Zotero, click: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlZGxlYWZuZXcvem90ZXJvLWphdmFzY3JpcHRz">zotero-javascripts<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>blog</category>
       </categories>
       <tags>
-        <tag>growth modeling</tag>
-        <tag>moderation</tag>
+        <tag>zotero</tag>
+        <tag>javascript</tag>
+        <tag>sentence case</tag>
       </tags>
   </entry>
   <entry>
@@ -108,35 +101,6 @@ If you find one relevant scale but the paper only revealed on item or two. Then 
       </tags>
   </entry>
   <entry>
-    <title>How to batch edit title case into sentence case for multiple items in Zotero</title>
-    <url>/posts/4e75520/</url>
-    <content><![CDATA[<p>Zotero users might use APA 7<sup>th</sup> for their reference. There is a problem when the metadata in Zotero is title case, it is laborious to change it every time to sentence case. I found a java script that can take care of all items at once.</p>
-<p><strong>Usage:</strong> </p>
-<ol>
-<li>copy the code below</li>
-<li>Zotero-Tools-Developer-Run JavaScript</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">zoteroPane = <span class="title class_">Zotero</span>.<span class="title function_">getActiveZoteroPane</span>();</span><br><span class="line">items = zoteroPane.<span class="title function_">getSelectedItems</span>();</span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (item <span class="keyword">of</span> items) &#123;</span><br><span class="line"><span class="keyword">var</span> title = item.<span class="title function_">getField</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">result += <span class="string">&quot; &quot;</span> + title + <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> new_title = title.<span class="title function_">replace</span>(<span class="regexp">/\b([A-Z][a-z0-9]+|A)\b/g</span>, <span class="keyword">function</span> (<span class="params">x</span>) &#123; <span class="keyword">return</span> x.<span class="title function_">toLowerCase</span>(); &#125;);</span><br><span class="line">new_title = new_title.<span class="title function_">replace</span>(<span class="regexp">/(^|\?\s*)[a-z]/</span>, <span class="keyword">function</span> (<span class="params">x</span>) &#123; <span class="keyword">return</span> x.<span class="title function_">toUpperCase</span>(); &#125;);</span><br><span class="line">result += <span class="string">&quot;-&gt; &quot;</span> + new_title + <span class="string">&quot;\n\n&quot;</span>;</span><br><span class="line"><span class="comment">// // Do it at your own risk</span></span><br><span class="line"> item.<span class="title function_">setField</span>(<span class="string">&#x27;title&#x27;</span>, new_title);</span><br><span class="line"> <span class="keyword">await</span> item.<span class="title function_">saveTx</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
-
-<p><span style="color:#FF0000;">The only issue is that it can’t uppercase the first letter after the “:”</span> there is still minimum work to be done, but I am not an expert in Java so if you find a better way, just let me know. </p>
-<p><strong>If you want all title case, you can try another script below:</strong> </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> items = <span class="title class_">ZoteroPane</span>.<span class="title function_">getSelectedItems</span>();</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (item <span class="keyword">of</span> items) &#123;</span><br><span class="line">            <span class="keyword">var</span> title = item.<span class="title function_">getField</span>(<span class="string">&#x27;title&#x27;</span>);</span><br><span class="line">            new_title = <span class="title function_">titleCase</span>(title). <span class="comment">// convert to title case</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;And&#x27;</span>, <span class="string">&#x27;and&#x27;</span>). <span class="comment">// replace &#x27;And&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;For&#x27;</span>, <span class="string">&#x27;for&#x27;</span>). <span class="comment">// replace &#x27;For&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;In&#x27;</span>, <span class="string">&#x27;in&#x27;</span>). <span class="comment">// replace &#x27;In&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Of&#x27;</span>, <span class="string">&#x27;of&#x27;</span>). <span class="comment">// replace &#x27;Of&#x27;</span></span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;With&#x27;</span>, <span class="string">&#x27;with&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Usa&#x27;</span>, <span class="string">&#x27;USA&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Dna&#x27;</span>, <span class="string">&#x27;DNA&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Pcr&#x27;</span>, <span class="string">&#x27;PCR&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;Ros&#x27;</span>, <span class="string">&#x27;ROS&#x27;</span>).</span><br><span class="line">                            <span class="title function_">replace</span>(<span class="string">&#x27;To&#x27;</span>, <span class="string">&#x27;to&#x27;</span>)</span><br><span class="line">                            </span><br><span class="line">                            </span><br><span class="line">                            </span><br><span class="line">            item.<span class="title function_">setField</span>(<span class="string">&#x27;title&#x27;</span>, new_title);</span><br><span class="line">            <span class="keyword">await</span> item.<span class="title function_">saveTx</span>();</span><br><span class="line">            n ++</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> n + <span class="string">&#x27;个条目的题目大小写转为词首字母大写，有些特殊缩写单词可能转换错误，请查实。&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将单词转为首字母大写</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">titleCase</span>(<span class="params">str</span>) &#123;   </span><br><span class="line">     <span class="keyword">var</span> newStr = str.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>);    </span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; newStr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        newStr[i] = newStr[i].<span class="title function_">slice</span>(<span class="number">0</span>,<span class="number">1</span>).<span class="title function_">toUpperCase</span>() + newStr[i].<span class="title function_">slice</span>(<span class="number">1</span>).<span class="title function_">toLowerCase</span>();</span><br><span class="line">        &#125;      </span><br><span class="line">     <span class="keyword">return</span> newStr.<span class="title function_">join</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>Note: </p>
-<p>Before run the script, make sure the metadata (year, author name, doi, etc.) are right. </p>
-<p><strong>Reference:</strong></p>
-<p>Find other useful scripts in Zotero, click: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlZGxlYWZuZXcvem90ZXJvLWphdmFzY3JpcHRz">zotero-javascripts<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>zotero</tag>
-        <tag>javascript</tag>
-        <tag>sentence case</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to keep track of the latest journal articles</title>
     <url>/posts/2bab4f46/</url>
     <content><![CDATA[<p>Probably just me, every once a while, I feel myself anxious being left behind about the latest literature in my field. So, for a long time, I’ve been trying to find a perfect way to keep track of the latest journal articles. I found my final answer, but tried different methods along the way, and you may find other solutions fit you better. I hereby recommend three main approaches for your consideration.</p>
@@ -165,6 +129,42 @@ If you find one relevant scale but the paper only revealed on item or two. Then 
         <tag>rss</tag>
         <tag>email alert</tag>
         <tag>browzine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to test moderation in growth modeling</title>
+    <url>/posts/c622061/</url>
+    <content><![CDATA[<p>The outcome is repeatedly measured in the moderation. </p>
+<p>There are two papers explaining the methods behind:</p>
+<ol>
+<li><p>Curran, P. J., Bauer, D. J., &amp; Willoughby, M. T. (2004). Testing main effects and interactions in latent curve analysis. Psychological Methods, 9(2), 220-237.</p>
+</li>
+<li><p>Preacher, K. J., Curran, P. J., &amp; Bauer, D. J. (2006). Computational tools for probing interactions in multiple linear regression, multilevel modeling, and latent curve analysis. Journal of Educational and Behavioral Statistics, 31(4), 437-448.</p>
+<blockquote>
+<p>Note: online tools mentioned in this paper could be found at: <span class="exturl" data-url="aHR0cHM6Ly9ldXIwMy5zYWZlbGlua3MucHJvdGVjdGlvbi5vdXRsb29rLmNvbS8/dXJsPWh0dHA6Ly93d3cucXVhbnRwc3kub3JnL2ludGVyYWN0L2luZGV4Lmh0bSZkYXRhPTA1JTdDMDIlN0N5LnlhbmdAcnNtLm5sJTdDNmE3NGIyMTkxY2VjNGRiNjg0MGYwOGRjYmZjYjgzOWMlN0M3MTU5MDJkNmY2M2U0YjhkOTI5YjRiYjE3MGJhZDQ5MiU3QzAlN0MwJTdDNjM4NTk2MTI4MDM2NjgwOTA2JTdDVW5rbm93biU3Q1RXRnBiR1pzYjNkOGV5SldJam9pTUM0d0xqQXdNREFpTENKUUlqb2lWMmx1TXpJaUxDSkJUaUk2SWsxaGFXd2lMQ0pYVkNJNk1uMD0lN0MwJTdDJTdDJTdDJnNkYXRhPTVtM2RIRVJuSkEzMlh1K0p0RGg3K3JHbzAwT0ZLSWgwSkFHekQ0c3F2aEk9JnJlc2VydmVkPTA=">http://www.quantpsy.org/interact/index.htm<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+</li>
+</ol>
+<p>Though moderation was not a main focus in this classic paper, gender as a moderator appeared in the growth modeling. </p>
+<ol>
+<li>Ployhart, R. E., &amp; Vandenberg, R. J. (2010). Longitudinal research: The theory, design, and analysis of change. <em>Journal of management</em>, <em>36</em>(1), 94-120.</li>
+</ol>
+<p><strong>Two example articles deployed moderation in latent growth modeling:</strong></p>
+<p><strong>AMJ:</strong> more details in Online Supplemental Materials:</p>
+<ul>
+<li>Deng, Y., Lin, W., Song, Y., Wang, M., Cai, D., &amp; Liu, J. (In press). Socialization as a political arena: A multi-agent interactionist perspective to understand political skill and newcomer socialization rates. <em>Academy of Management Journal</em>.</li>
+</ul>
+<p><strong>JAP</strong>: Multilevel moderation</p>
+<ul>
+<li>Miron-Spektor, E., Vashdi, D. R., &amp; Gopher, H. (2022). Bright sparks and enquiring minds: Differential effects of goal orientation on the creativity trajectory. <em>Journal of Applied Psychology</em>, <em>107</em>(2), 310-218.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>growth modeling</tag>
+        <tag>moderation</tag>
       </tags>
   </entry>
   <entry>

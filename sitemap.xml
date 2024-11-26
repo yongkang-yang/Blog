@@ -108,34 +108,6 @@
   </url>
   
   <url>
-    <loc>https://yongkang-yang.github.io/HexoBlog/tags/growth-modeling/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yongkang-yang.github.io/HexoBlog/tags/moderation/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yongkang-yang.github.io/HexoBlog/tags/scales/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yongkang-yang.github.io/HexoBlog/tags/measures/</loc>
-    <lastmod>2024-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yongkang-yang.github.io/HexoBlog/tags/zotero/</loc>
     <lastmod>2024-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -157,6 +129,20 @@
   </url>
   
   <url>
+    <loc>https://yongkang-yang.github.io/HexoBlog/tags/scales/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yongkang-yang.github.io/HexoBlog/tags/measures/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://yongkang-yang.github.io/HexoBlog/tags/rss/</loc>
     <lastmod>2024-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -172,6 +158,20 @@
   
   <url>
     <loc>https://yongkang-yang.github.io/HexoBlog/tags/browzine/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yongkang-yang.github.io/HexoBlog/tags/growth-modeling/</loc>
+    <lastmod>2024-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yongkang-yang.github.io/HexoBlog/tags/moderation/</loc>
     <lastmod>2024-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
